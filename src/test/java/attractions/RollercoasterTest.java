@@ -37,6 +37,16 @@ public class RollercoasterTest {
     }
 
     @Test
+    public void chargesDefaultUnder200() {
+        assertEquals(8.40, rollerCoaster.priceFor(wean), 0.0);
+    }
+
+    @Test
+    public void chargesDoubleOver200() {
+        assertEquals(16.80, rollerCoaster.priceFor(grownUp), 0.0);
+    }
+
+    @Test
     public void cannotRideIfTooSmall() {
         assertFalse(rollerCoaster.isAllowedTo(wean));
     }
@@ -50,4 +60,5 @@ public class RollercoasterTest {
     public void canRideIfNotTooYoungOrTooSmall() {
         assertTrue(rollerCoaster.isAllowedTo(grownUp));
     }
+
 }
