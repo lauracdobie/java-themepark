@@ -1,7 +1,9 @@
 import attractions.*;
 import behaviours.IReviewed;
+import people.Visitor;
 import stalls.*;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class ThemePark {
@@ -36,4 +38,10 @@ public class ThemePark {
 
         return allReviewed;
     }
+
+    public void visit(Visitor visitor, Attraction attraction) {
+        attraction.setVisitCount(attraction.getVisitCount() + 1);
+        visitor.addAttraction(attraction);
+    }
+
 }
