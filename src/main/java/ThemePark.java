@@ -1,5 +1,6 @@
 import attractions.*;
 import behaviours.IReviewed;
+import behaviours.ISecurity;
 import org.w3c.dom.Attr;
 import people.Visitor;
 import stalls.*;
@@ -58,6 +59,22 @@ public class ThemePark {
         }
 
         return reviews;
+    }
+
+    public ArrayList getAllowed(Visitor visitor) {
+        ArrayList<IReviewed> allAttractions = getAllReviewed();
+        ArrayList<IReviewed> allowedAttractions = new ArrayList<>();
+
+        for (IReviewed attraction : allAttractions) {
+            if (attraction instanceof ISecurity) {
+                if (((ISecurity) attraction).isAllowedTo(visitor)) {
+                    allowedAttractions.add(attraction);
+                }
+
+            }
+        }
+
+        return allowedAttractions;
     }
 
 }
