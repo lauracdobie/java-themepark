@@ -19,7 +19,6 @@ public class DodgemTest {
         grownUp = new Visitor(25, 205, 2.5);
     }
 
-
     @Test
     public void hasName() {
         assertEquals("Bumper Cars", dodgems.getName());
