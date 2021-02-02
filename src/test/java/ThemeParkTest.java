@@ -48,4 +48,9 @@ public class ThemeParkTest {
         assertEquals(1, grownUp.getVisitedAttractions().size());
         assertEquals(1, dodgems.getVisitCount());
     }
+
+    @Test
+    public void canGetReviews() {
+        assertEquals(7, balmichaelVisitorCentre.getReviews().size());
+    }
 }

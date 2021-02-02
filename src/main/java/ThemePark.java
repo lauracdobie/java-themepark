@@ -1,10 +1,13 @@
 import attractions.*;
 import behaviours.IReviewed;
+import org.w3c.dom.Attr;
 import people.Visitor;
 import stalls.*;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ThemePark {
     Dodgems dodgems;
@@ -42,6 +45,19 @@ public class ThemePark {
     public void visit(Visitor visitor, Attraction attraction) {
         attraction.setVisitCount(attraction.getVisitCount() + 1);
         visitor.addAttraction(attraction);
+    }
+
+    public HashMap getReviews() {
+        HashMap<String, Integer> reviews = new HashMap<>();
+        ArrayList<IReviewed> reviewedAttractions = getAllReviewed();
+
+        for (IReviewed attraction : reviewedAttractions) {
+            String key = attraction.getName();
+            int value = attraction.getRating();
+            reviews.put(key, value);
+        }
+
+        return reviews;
     }
 
 }
