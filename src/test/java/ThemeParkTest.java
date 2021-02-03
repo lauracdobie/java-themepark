@@ -59,4 +59,10 @@ public class ThemeParkTest {
         assertEquals(2, balmichaelVisitorCentre.getAllowed(grownUp).size());
 
     }
+
+    @Test
+    public void canGetAllAllowedAttractions() {
+        assertEquals(6, balmichaelVisitorCentre.getAllAllowed(grownUp).size());
+
+    }
 }

@@ -77,4 +77,17 @@ public class ThemePark {
         return allowedAttractions;
     }
 
+    public ArrayList getAllAllowed(Visitor visitor) {
+        ArrayList<IReviewed> allAttractions = getAllReviewed();
+        ArrayList<IReviewed> allowedAttractions = getAllowed(visitor);
+
+        for (IReviewed attraction : allAttractions) {
+            if (!(attraction instanceof ISecurity)) {
+                allowedAttractions.add(attraction);
+            }
+        }
+
+        return allowedAttractions;
+    }
+
 }
